@@ -107,3 +107,14 @@ $(document).ready(function () {
 });
 
 
+
+$(document).ready(function () {
+	$("#divM").hide();
+	$("#buttonM").click(function () {
+		$("#divM").toggle(1000);
+
+		$("#buttonM").hide();
+		return false;
+	});
+});
+

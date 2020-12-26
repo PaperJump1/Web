@@ -14,10 +14,27 @@
 
 	<script>
 		var x = 0;
-		function CON() {
-			x = 1;
-		}
+        function CON() {
+            x = 1;
+            var button = document.getElementById("BUT");
+            var buttonP = document.getElementById("BUTP");
+            var buttonS = document.getElementById("BUTS");
+            var buttonR = document.getElementById("BUTR");
+            buttonP.style.display = "block";
+            buttonS.style.display = "block";
+            buttonR.style.display = "block";
+            button.style.display = "none";
+        }
 
+        function PAU() {
+            x = 0;
+        }
+        function START() {
+            x = 1;
+        }
+        function RESET() {
+            time = 25 * 60;
+        }
 		var time = 25 * 60;
 		function CountDown() {
 			if (time >= 0) {
@@ -106,11 +123,10 @@
 					were<br />
 					when
 				</p>
-				<h2>▌答案代碼</h2>
-				<div id="la">
-					<pre id="div1" style="display: none;">
-                    
-
+				<h2>▌答題想法</h2>
+				<br />
+				<div id="lala">
+					<pre id="divM">
 /*
 題目想法:
 把每個單字輸入到字典裡，不含標點符號
@@ -120,6 +136,15 @@
 然後就是判斷是否是一個合法的字串，插入set
 再輸出就是答案了
 */
+                    </pre>
+				</div>
+				<button id="buttonM" style="border:none; color :black;  background-color:#00FF00; font-size:15px; outline:none">顯示題目想法▼</button>
+				<br />
+				<br />
+				<h2>▌答案代碼</h2>
+				<div id="la">
+					<pre id="div1" style="display: none;">
+                    
 
 #include &ltiostream&gt
 #include &ltvector&gt
@@ -211,11 +236,13 @@ cout&lt&lti&lt&ltendl;
 				<br />
 				<br />
 				<form>
-					<button type="button" onClick="CON()" style="border:none; color :black;  font-size:20px;">開始計時</button>
+					<button type="button" onClick="CON()" id="BUT" style="border:none; color :black;  font-size:20px;">開始計時</button>
 
 					<p id="TI" style="color:white;font-size:30px"></p>
 				</form>
-
+				<button type="button" id="BUTP" onclick="PAU()" style="border:none; color :black;  font-size:20px; display:none; ">暫停時間</button>
+				<button type="button" id="BUTS" onclick="START()" style="border:none; color :black;  font-size:20px; display:none; ">開始時間</button>
+				<button type="button" id="BUTR" onclick="RESET()" style="border:none; color :black;  font-size:20px; display:none; ">重置時間</button>
 			</div>
 			
 			<div style="clear: both;">&nbsp;</div>

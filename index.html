@@ -21,7 +21,12 @@
 					if (key == problemSN[i]) {
 						window.location.href = problemHRE[i];
 					}
+                    else {
+                        var DEF = document.getElementById("default");
+                        DEF.innerHTML = "沒有搜尋到相關結果";
+                    }
 				}
+			
 			});
 		});
 	</script>
@@ -47,9 +52,11 @@
 			<form method="get" action="">
 				<fieldset>
 					<input type="text" name="s" value="uva10050" id="search-text" size="15" />
-					<button type="button" id="search-submit">GO</button>
+					<button type="button" id="search-submit">GO</button>					
 				</fieldset>
+				<p id="default" style="color:black;"></p>
 			</form>
+			
 		</div>
 		
 	</div>

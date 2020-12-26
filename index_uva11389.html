@@ -14,9 +14,27 @@
 
 	<script>
 		var x = 0;
-		function CON() {
-			x = 1;
-		}
+        function CON() {
+            x = 1;
+            var button = document.getElementById("BUT");
+            var buttonP = document.getElementById("BUTP");
+            var buttonS = document.getElementById("BUTS");
+            var buttonR = document.getElementById("BUTR");
+            buttonP.style.display = "block";
+            buttonS.style.display = "block";
+            buttonR.style.display = "block";
+            button.style.display = "none";
+        }
+
+        function PAU() {
+            x = 0;
+        }
+        function START() {
+            x = 1;
+        }
+        function RESET() {
+            time = 25 * 60;
+        }
 
 		var time = 25 * 60;
 		function CountDown() {
@@ -101,11 +119,10 @@
 					50<br />
 					0
 				</p>
-				<h2>▌答案代碼</h2>
-				<div id="la">
-					<pre id="div1" style="display: none;">
-                    
-
+				<h2>▌答題想法</h2>
+				<br />
+				<div id="lala">
+					<pre id="divM">
 /*
 題目想法:
 盡量把hour填滿，讓上下午的時間加起來盡量跟hour一樣
@@ -114,6 +131,15 @@
 所以如果早上需要花很多的時間，那下午就選擇走花費時間比較少的道路
 在這種互補關係下 讓上下午兩段時間的總和接近平均
 */
+                    </pre>
+				</div>
+				<button id="buttonM" style="border:none; color :black;  background-color:#00FF00; font-size:15px; outline:none">顯示題目想法▼</button>
+				<br />
+				<br />
+				<h2>▌答案代碼</h2>
+				<div id="la">
+					<pre id="div1" style="display: none;">
+                    
 
 #include &ltiostream&gt
 #include &ltvector&gt
@@ -211,11 +237,13 @@ cout&lt&ltsum&lt&ltendl;
 				<br />
 				<br />
 				<form>
-					<button type="button" onClick="CON()" style="border:none; color :black;  font-size:20px;">開始計時</button>
+					<button type="button" onClick="CON()" id="BUT" style="border:none; color :black;  font-size:20px;">開始計時</button>
 
 					<p id="TI" style="color:white;font-size:30px"></p>
 				</form>
-
+				<button type="button" id="BUTP" onclick="PAU()" style="border:none; color :black;  font-size:20px; display:none; ">暫停時間</button>
+				<button type="button" id="BUTS" onclick="START()" style="border:none; color :black;  font-size:20px; display:none; ">開始時間</button>
+				<button type="button" id="BUTR" onclick="RESET()" style="border:none; color :black;  font-size:20px; display:none; ">重置時間</button>
 			</div>
 			
 			<div style="clear: both;">&nbsp;</div>
