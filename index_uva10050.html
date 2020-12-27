@@ -12,9 +12,10 @@
     <script src="Script1.js"></script>
 
     <script>
-        var x = 0;       
+        var x = 0;
+        var start = 0;
         function CON() {
-            x = 1;          
+            x = 1;
             var button = document.getElementById("BUT");
             var buttonP = document.getElementById("BUTP");
             var buttonS = document.getElementById("BUTS");
@@ -27,12 +28,15 @@
 
         function PAU() {
             x = 0;
+            start = 1;
         }
         function START() {
             x = 1;
+            start = 1;
         }
         function RESET() {
             time = 25 * 60;
+            start = 1;
         }
 
         var time = 25 * 60;
@@ -42,7 +46,7 @@
                 min = Math.floor(time / 60);
 
                 information = min + "分" + sec + "秒" + "時間結束";
-                if (x == 1) {
+                if (x == 1 || start == 1) {
                     document.getElementById("TI").innerHTML = information;
                 }
                 if (x == 1) {
